@@ -11,6 +11,7 @@
 
     <modules>
         <module>provider-payment8001</module>
+        <module>consumer-order80</module>
     </modules>
 
     <!--统一管理jar包和版本-->
