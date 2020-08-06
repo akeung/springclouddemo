@@ -16,6 +16,8 @@
         <module>eureka-server7001</module>
         <module>eureka-server7002</module>
         <module>provider-payment8002</module>
+        <module>provider-payment8004</module>
+        <module>consumerzk-order80</module>
     </modules>
 
     <!--统一管理jar包和版本-->
