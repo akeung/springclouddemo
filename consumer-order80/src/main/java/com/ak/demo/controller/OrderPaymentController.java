@@ -7,10 +7,16 @@ package com.ak.demo.controller;
 
 import com.ak.demo.entities.CommonResult;
 import com.ak.demo.entities.Payment;
+import com.ak.demo.lb.LoadBalancer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import java.net.URI;
+import java.util.List;
 
 /**
  * @author Akeung
@@ -26,6 +32,22 @@ public class OrderPaymentController {
 
     @Autowired
     private RestTemplate restTemplate;
+
+    @Autowired
+    private LoadBalancer loadBalancer;
+    @Autowired
+    private DiscoveryClient discoveryClient;
+
+    @GetMapping("get/LB")
+    public String getPaymentLB() {
+        List<ServiceInstance> instances = discoveryClient.getInstances("PAYMENT-SERVICE");
+        if (instances == null || instances.size() < 1) {
+            return null;
+        }
+        ServiceInstance instance = loadBalancer.instance(instances);
+        URI uri = instance.getUri();
+        return restTemplate.getForObject(uri + "/payment/get/LB", String.class);
+    }
 
     @PostMapping("/create")
     public CommonResult create(@RequestBody Payment payment) {

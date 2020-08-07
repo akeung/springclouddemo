@@ -1,25 +1,24 @@
 /*
- * FileName: Order80
+ * FileName: OrderOpenFeign80
  * Author:   Akeung
- * Date:     2020/8/2
+ * Date:     2020/8/7
  */
 package com.ak.demo;
 
-import com.ak.irule.config.RibbonRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author Akeung
- * 2020/8/2
+ * 2020/8/7
  */
-@RibbonClient(name = "PAYMENT-SERVICE",configuration = RibbonRule.class)
 @EnableEurekaClient
+@EnableFeignClients
 @SpringBootApplication
-public class Order80 {
+public class OrderOpenFeign80 {
     public static void main(String[] args) {
-        SpringApplication.run(Order80.class,args);
+        SpringApplication.run(OrderOpenFeign80.class,args);
     }
 }
