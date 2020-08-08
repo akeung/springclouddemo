@@ -5,9 +5,12 @@
  */
 package com.ak.demo.controller;
 
+import cn.hutool.core.util.IdUtil;
 import com.ak.demo.entities.CommonResult;
 import com.ak.demo.entities.Payment;
 import com.ak.demo.service.PaymentService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -84,5 +87,24 @@ public class PaymentController {
             e.printStackTrace();
         }
         return serverPort;
+    }
+
+    @HystrixCommand(fallbackMethod = "paymentInfo_TimeOutHandler", commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000")
+    })
+    @GetMapping(value = "/paymentInfo_TimeOut")
+    public String paymentInfo_TimeOut() {
+        try {
+            // 暂停3秒钟 模拟超时任务
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return serverPort;
+    }
+
+    private String paymentInfo_TimeOutHandler() {
+        String serialNumber = IdUtil.simpleUUID();
+        return " 流水号:" + serialNumber;
     }
 }

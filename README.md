@@ -1,12 +1,3 @@
 # springclouddemo
-微服务模块
-
-1.建module
-
-2.改pom
-
-3.写yml
-
-4.主启动
-
-5.业务类
+SpringCloud H版+SpringCloud alibaba
+包括Eureka、Ribbon、OpenFeign、Hystrix、Config、Consul、Gateway、Bus、Stream、Sleuth、zipkin和阿里的Nacos、Sentinel、Seata等技术

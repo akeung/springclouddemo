@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <!--父工程 锁定版本 + 子module，不用写groupId和version-->
-    <artifactId>provider-payment8001</artifactId>
+    <artifactId>provider-hystrix-payment8007</artifactId>
 
     <dependencies>
         <!--整合hystrix-->

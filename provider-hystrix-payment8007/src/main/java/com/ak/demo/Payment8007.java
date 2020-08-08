@@ -1,5 +1,5 @@
 /*
- * FileName: Payment8001
+ * FileName: Payment8007
  * Author:   Akeung
  * Date:     2020/8/2
  */
@@ -16,11 +16,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * 2020/8/2
  */
 @EnableCircuitBreaker
-@EnableDiscoveryClient
 @EnableEurekaClient
 @SpringBootApplication
-public class Payment8001 {
+public class Payment8007 {
     public static void main(String[] args) {
-        SpringApplication.run(Payment8001.class,args);
+        SpringApplication.run(Payment8007.class,args);
     }
 }

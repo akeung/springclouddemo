@@ -21,6 +21,10 @@
         <module>providerconsul-payment8006</module>
         <module>consumerconsul-order80</module>
         <module>consumerfeign-order80</module>
+        <module>provider-hystrix-payment8007</module>
+        <module>consumer-feign-hystrix-order80</module>
+        <module>consumer-hystrix-dashboard8020</module>
+        <module>consumer-hystrix-turbine8021</module>
     </modules>
 
     <!--统一管理jar包和版本-->

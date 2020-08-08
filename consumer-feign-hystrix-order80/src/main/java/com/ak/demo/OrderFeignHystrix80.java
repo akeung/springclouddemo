@@ -1,26 +1,26 @@
 /*
- * FileName: Payment8001
+ * FileName: OrderFeignHystrix80
  * Author:   Akeung
- * Date:     2020/8/2
+ * Date:     2020/8/8
  */
 package com.ak.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author Akeung
- * 2020/8/2
+ * 2020/8/8
  */
-@EnableCircuitBreaker
-@EnableDiscoveryClient
+@EnableHystrix
 @EnableEurekaClient
+@EnableFeignClients
 @SpringBootApplication
-public class Payment8001 {
+public class OrderFeignHystrix80 {
     public static void main(String[] args) {
-        SpringApplication.run(Payment8001.class,args);
+        SpringApplication.run(OrderFeignHystrix80.class,args);
     }
 }
