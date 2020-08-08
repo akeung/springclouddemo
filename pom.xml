@@ -25,6 +25,7 @@
         <module>consumer-feign-hystrix-order80</module>
         <module>consumer-hystrix-dashboard8020</module>
         <module>consumer-hystrix-turbine8021</module>
+        <module>gateway-gateway9527</module>
     </modules>
 
     <!--统一管理jar包和版本-->

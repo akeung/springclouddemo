@@ -48,7 +48,7 @@ public class PaymentController {
         return new CommonResult<>(444, "查询数据为空serverPort:" + serverPort, null);
     }
 
-    @GetMapping("get/LB")
+    @GetMapping(value = {"get/LB","LB"})
     public String getPaymentLB() {
         return serverPort;
     }
