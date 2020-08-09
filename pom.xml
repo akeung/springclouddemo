@@ -27,6 +27,8 @@
         <module>consumer-hystrix-turbine8021</module>
         <module>gateway-gateway9527</module>
         <module>gateway-zuul9528</module>
+        <module>config-center-3344</module>
+        <module>config-client-3370</module>
     </modules>
 
     <!--统一管理jar包和版本-->

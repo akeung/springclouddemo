@@ -1,0 +1,20 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/akeung/springclouddemo-config
+          search-paths:
+            - springclouddemo-config #搜索目录
+      label: master #默认读取分支
+
+eureka:
+  client:
+    register-with-eureka: true #表示向注册中心注册自己 默认为true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
