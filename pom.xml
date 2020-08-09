@@ -29,6 +29,7 @@
         <module>gateway-zuul9528</module>
         <module>config-center-3344</module>
         <module>config-client-3370</module>
+        <module>config-client-3371</module>
     </modules>
 
     <!--统一管理jar包和版本-->
