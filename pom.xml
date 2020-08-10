@@ -30,6 +30,9 @@
         <module>config-center-3344</module>
         <module>config-client-3370</module>
         <module>config-client-3371</module>
+        <module>stream-rabbitmq-provider8801</module>
+        <module>stream-rabbitmq-consumer8802</module>
+        <module>stream-rabbitmq-consumer8803</module>
     </modules>
 
     <!--统一管理jar包和版本-->
