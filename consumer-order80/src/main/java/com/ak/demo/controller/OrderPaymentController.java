@@ -33,7 +33,7 @@ public class OrderPaymentController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Autowired
+//    @Autowired //todo 与 @LoadBalanced 互斥
     private LoadBalancer loadBalancer;
     @Autowired
     private DiscoveryClient discoveryClient;

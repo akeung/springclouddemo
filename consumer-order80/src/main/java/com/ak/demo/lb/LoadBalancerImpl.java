@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 2020/8/7
  * @see RoundRobinRule
  */
-@Component
+//@Component
 public class LoadBalancerImpl implements LoadBalancer {
 
     private AtomicInteger nextServerCyclicCounter;
