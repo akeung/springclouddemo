@@ -1,0 +1,15 @@
+server:
+  port: 8903
+spring:
+  application:
+    name: alibaba-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

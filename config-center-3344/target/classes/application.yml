@@ -1,0 +1,40 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: config-center
+  profiles:
+    active: native
+  cloud:
+    config:
+#      server:
+#        native:
+#          search-locations: classpath:/config
+
+      server:
+        git:
+          uri: https://github.com/akeung/springclouddemo-config
+          search-paths:
+            - springclouddemo-config #搜索目录
+      label: master #默认读取分支
+
+  #rabbitmq相关配置，15672是web管理端口，5672是mq访问端口
+  rabbitmq:
+    host: localhost
+    #  port: 5672 默认
+    username: guest
+    password: guest
+
+eureka:
+  client:
+    register-with-eureka: true #表示向注册中心注册自己 默认为true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+
+# 暴露bus刷新配置的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"

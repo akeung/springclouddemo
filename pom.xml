@@ -33,6 +33,11 @@
         <module>stream-rabbitmq-provider8801</module>
         <module>stream-rabbitmq-consumer8802</module>
         <module>stream-rabbitmq-consumer8803</module>
+        <module>alibaba-provider8901</module>
+        <module>alibaba-provider8902</module>
+        <module>alibaba-consumer8903</module>
+        <module>alibaba-config3377</module>
+        <module>alibaba-sentinel-service8401</module>
     </modules>
 
     <!--统一管理jar包和版本-->
