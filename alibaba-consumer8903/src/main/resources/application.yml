@@ -7,9 +7,19 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080 #sentinel dashboard地址
+        port: 8719 #默认为8719端口，如果被占用会自动从8719开始一次+1，直到找到未被占用的端口
+
+#激活Sentinel对OpenFeign的支持
+feign:
+  sentinel:
+    enabled: true
 
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+
