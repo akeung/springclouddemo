@@ -1,0 +1,62 @@
+#set($length=$package.Service.length() - 8)
+#set($prefix=$package.Service.substring(0, $length))
+#set($lowerEntity=$entity.substring(0,1).toLowerCase() + $entity.substring(1))
+/*
+ * Copyright (C), 2020-2020, Akeung
+ * FileName: ${entity}Manager
+ * Author:   ${author}
+ * Date:     ${date}
+ */
+package ${prefix}.manager;
+
+import ${prefix}.dao.${entity}DAO;
+import ${package.Entity}.${entity};
+import com.dianji.pangu.jdbc.dao.BaseDAO;
+import com.dianji.pangu.jdbc.manager.BaseManager;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+/**
+ * $!{table.comment}Manager
+ * @author ${author}
+ * ${date}
+ */
+@Component
+public class ${table.serviceName} {
+#set($first=$entity.substring(0,1))
+
+    @Resource
+    private ${entity}DAO ${lowerEntity}DAO;
+
+
+
+    /**
+     * 保存或更新$!{table.comment}
+     * @param ${lowerEntity} $!{table.comment}
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public void saveOrUpdate(${entity} ${lowerEntity}) {
+        ${lowerEntity}DAO.saveOrUpdate(${lowerEntity});
+    }
+
+    /**
+    * 批量保存$!{table.comment}
+    * @param ${lowerEntity}List $!{table.comment}
+    */
+    @Transactional(rollbackFor = Exception.class)
+    public void batchSave(List<${entity}> ${lowerEntity}List) {
+        ${lowerEntity}DAO.batchSave(${lowerEntity}List);
+    }
+
+    /**
+     * 批量保存或更新$!{table.comment}
+     * @param ${lowerEntity}List $!{table.comment}
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public void batchSaveOrUpdate(List<${entity}> ${lowerEntity}List) {
+        ${lowerEntity}DAO.batchSaveOrUpdate(${lowerEntity}List);
+    }
+}

@@ -1,0 +1,44 @@
+server:
+  port: 8912
+
+spring:
+  application:
+    name: seata-storage
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.71.128:3306/seata_storage?useSSL=false
+    username: root
+    password: 123456
+
+feign:
+  hystrix:
+    enabled: true
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.ak.demo.entities
+
+logging:
+  level:
+    io:
+      seata: info
+    com.ak.demo.dao: debug
+
+seata:
+  enabled: true
+  tx-service-group: ak_tx_group #与seata-server的file.conf的对应
+  registry:
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+  client:
+    support:
+      spring:
+        datasource-autoproxy: true
+  service:
+    disable-global-transaction: false

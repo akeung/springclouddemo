@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /*
+ * Copyright (C), 2020-2020, Akeung
+ * FileName: OrderMapper
+ * Author:   Akeung
+ * Date:     2020-08-14
+ */
+-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ak.demo.mapper.OrderMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.ak.demo.entities.Order">
+		<id column="id" property="id" />
+		<result column="user_id" property="userId" />
+		<result column="product_id" property="productId" />
+		<result column="COUNT" property="count" />
+		<result column="money" property="money" />
+		<result column="STATUS" property="status" />
+	</resultMap>
+
+
+    <!-- 保存或更新 -->
+    <insert id="saveOrUpdate">
+        INSERT INTO t_order(
+			id,
+			user_id,
+			product_id,
+			COUNT,
+			money,
+			STATUS) VALUES
+            (
+			#{order.id},
+			#{order.userId},
+			#{order.productId},
+			#{order.count},
+			#{order.money},
+			#{order.status}
+		)ON duplicate KEY UPDATE
+			user_id = VALUES(user_id),
+			product_id = VALUES(product_id),
+			COUNT = VALUES(COUNT),
+			money = VALUES(money),
+			STATUS = VALUES(STATUS)	
+    </insert>
+
+	<update id="updateStatus">
+		update t_order set STATUS=1
+		where
+		user_id = #{userId} and STATUS = #{status}
+	</update>
+
+    <!-- 批量保存 -->
+    <insert id="batchSave">
+        INSERT INTO t_order(
+			id,
+			user_id,
+			product_id,
+			COUNT,
+			money,
+			STATUS) VALUES
+        <foreach collection="orderList" item="order" separator=",">
+            (
+	        #{order.id},
+	        #{order.userId},
+	        #{order.productId},
+	        #{order.count},
+	        #{order.money},
+	        #{order.status}
+		)
+        </foreach>
+    </insert>
+
+    <!-- 批量保存或更新 -->
+    <insert id="batchSaveOrUpdate">
+        INSERT INTO t_order(
+			id,
+			user_id,
+			product_id,
+			COUNT,
+			money,
+			STATUS) VALUES
+        <foreach collection="orderList" item="order" separator=",">
+            (
+			#{order.id},
+			#{order.userId},
+			#{order.productId},
+			#{order.count},
+			#{order.money},
+			#{order.status}
+		)
+        </foreach>
+			ON duplicate KEY UPDATE
+			user_id = VALUES(user_id),
+			product_id = VALUES(product_id),
+			COUNT = VALUES(COUNT),
+			money = VALUES(money),
+			STATUS = VALUES(STATUS)	
+    </insert>
+
+</mapper>

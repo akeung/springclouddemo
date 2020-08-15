@@ -1,0 +1,56 @@
+#set($length=$package.Service.length() - 8)
+#set($prefix=$package.Service.substring(0, $length))
+#set($lowerEntity=$entity.substring(0,1).toLowerCase() + $entity.substring(1))
+/*
+ * Copyright (C), 2020-2020, Akeung
+ * FileName: ${entity}DAO
+ * Author:   ${author}
+ * Date:     ${date}
+ */
+package ${prefix}.dao;
+
+import com.baomidou.mybatisplus.mapper.BaseMapper;
+import ${package.Entity}.${entity};
+import com.dianji.pangu.jdbc.dao.BaseDAO;
+import ${prefix}.dao.mapper.${table.mapperName};
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+/**
+ * $!{table.comment}DAO
+ * @author ${author}
+ * ${date}
+ */
+@Component
+public class ${table.serviceImplName} {
+
+    @Resource
+    private ${entity}Mapper ${lowerEntity}Mapper;
+
+
+    /**
+     * 保存或更新$!{table.comment}
+     * @param ${lowerEntity} $!{table.comment}
+     */
+    public void saveOrUpdate(${entity} ${lowerEntity}) {
+        ${lowerEntity}Mapper.saveOrUpdate(${lowerEntity});
+    }
+    /**
+     * 批量保存$!{table.comment}
+     * @param ${lowerEntity}List $!{table.comment}
+     */
+    public void batchSave(List<${entity}> ${lowerEntity}List) {
+        ${lowerEntity}Mapper.batchSave(${lowerEntity}List);
+    }
+
+    /**
+     * 批量保存或更新$!{table.comment}
+     * @param ${lowerEntity}List $!{table.comment}
+     */
+    public void batchSaveOrUpdate(List<${entity}> ${lowerEntity}List) {
+        ${lowerEntity}Mapper.batchSaveOrUpdate(${lowerEntity}List);
+    }
+
+}
