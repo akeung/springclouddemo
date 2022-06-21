@@ -13,7 +13,7 @@
 
     <!--重新定义版本-->
     <properties>
-        <mysql.version>5.1.38</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <druid.verison>1.1.10</druid.verison>
         <mybatis.spring.boot.verison>1.3.0</mybatis.spring.boot.verison>
     </properties>
